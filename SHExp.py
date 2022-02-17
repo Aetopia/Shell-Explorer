@@ -12,7 +12,7 @@ class UI:
 
 # Explorer
 def Explorer():
-    print('\n Shell Explorer')
+    print("\n |■| Shell Explorer")    
     UI.Line('_')
     if str(glob('*')) != '[]':
         for Item in glob("*"):
