@@ -1,7 +1,6 @@
 # Modules
 from glob import glob
 from os import getcwd, system, path, chdir
-from subprocess import run
 from fnmatch import filter
 
 # UI 
