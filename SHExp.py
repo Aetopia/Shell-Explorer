@@ -16,19 +16,19 @@ def Explorer():
     UI.Line('_')
     if str(glob('*')) != '[]':
         for Item in glob("*"):
-            Whitespaces=''
+            Whitespaces = ''
             if path.isfile(path.abspath(Item)): 
-                Type=f'{path.splitext(Item)[1]} File'.strip()
+                Type = f'{path.splitext(Item)[1]} File'.strip()
                 Icon = '#'
             elif path.isdir(path.abspath(Item)):
-                Type='File Folder'  
+                Type = 'File Folder'  
                 Icon = '>' 
             if len(Item) > 50: Output=f"{Icon} {Item[:50]}... | {Type}"
             elif len(Item) < 50:
                 Length=53-len(Item)
-                for _ in range(Length): Whitespaces+=" "
+                for _ in range(Length): Whitespaces += ' '
                 Output=f"{Icon} {Item}{Whitespaces} | {Type}"
-            Whitespaces=''
+            Whitespaces = ''
             print(Output)
     else: print('~ |Empty Directory|')           
     UI.Line('‾')    
