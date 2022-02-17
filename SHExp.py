@@ -23,12 +23,11 @@ def Explorer():
             elif path.isdir(path.abspath(Item)):
                 Type='File Folder'  
                 Icon = '>' 
-            if len(Item) > 50: Item=f'{Item[:50]}...'
+            if len(Item) > 50: Output=f"{Icon} {Item[:50]}... | {Type}"
             elif len(Item) < 50:
                 Length=53-len(Item)
                 for _ in range(Length): Whitespaces+=" "
                 Output=f"{Icon} {Item}{Whitespaces} | {Type}"
-            else: Output=f"{Icon} {Item} | {Type}"
             Whitespaces=''
             print(Output)
     else: print('~ |Empty Directory|')           
