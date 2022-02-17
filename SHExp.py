@@ -1,8 +1,9 @@
 # Modules
 from glob import glob
-from os import getcwd, system, path, chdir
+from os import getcwd, path, chdir
 from fnmatch import filter
-from platform import system as OS
+from subprocess import run
+from platform import system
 
 # Force CWD
 chdir(getcwd())
@@ -62,8 +63,8 @@ def Command():
 # Main
 if __name__ == '__main__':
     while True:
-        if OS() == 'Windows': system('cls')
-        else: system('clear')    
+        if system() == 'Windows': run('cls', shell=True)
+        else: run('clear', shell=True)    
         Explorer()
         try: Command()
         except: exit()
