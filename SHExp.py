@@ -15,8 +15,7 @@ class UI:
         print()                   
 
 # Explorer
-def Explorer():
-    print("\n Shell Explorer")    
+def Explorer(): 
     UI.Line('=')
     if str(glob('*')) != '[]':
         for Item in glob("*"):
