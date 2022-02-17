@@ -2,17 +2,21 @@
 from glob import glob
 from os import getcwd, system, path, chdir
 from fnmatch import filter
+from platform import system as OS
+
+# Force CWD
+chdir(getcwd())
 
 # UI 
 class UI:
     def Line(Character):
-        for _ in range(100): print(Character, end='')
+        for _ in range(75): print(Character, end='')
         print()                   
 
 # Explorer
 def Explorer():
-    print("\n |■| Shell Explorer")    
-    UI.Line('_')
+    print("\n Shell Explorer")    
+    UI.Line('=')
     if str(glob('*')) != '[]':
         for Item in glob("*"):
             Whitespaces = ''
@@ -30,11 +34,9 @@ def Explorer():
             Whitespaces = ''
             print(Output)
     else: print('~ |Empty Directory|')           
-    UI.Line('‾')    
-    print(f'Path: {getcwd()}')
-    print(""" ___________       
-| Go | Back |
- ‾‾‾‾‾‾‾‾‾‾‾""")
+    UI.Line('=')    
+    print(f'\nPath: {getcwd()}\n')
+    print("[ Go | Back ]\n")
 
 # Toolbar
 def Command():
@@ -51,13 +53,17 @@ def Command():
             except: pass
             try: chdir(path.abspath(Folder))
             except: pass
-        case 'back': chdir(path.abspath(path.dirname(getcwd())))
+        case 'back': 
+            try:
+                for _ in range(int(Command[1])):
+                    chdir(path.abspath(path.dirname(getcwd())))
+            except: chdir(path.abspath(path.dirname(getcwd())))       
      
 # Main
 if __name__ == '__main__':
     while True:
-        try: system('cls')
-        except: system('clear')    
+        if OS() == 'Windows': system('cls')
+        else: system('clear')    
         Explorer()
         try: Command()
         except: exit()
