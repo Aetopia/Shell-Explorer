@@ -28,7 +28,7 @@ def Explorer():
                 Length=53-len(Item)
                 for _ in range(Length): Whitespaces+=" "
                 Output=f"{Icon} {Item}{Whitespaces} | {Type}"
-            else: Output=f"{Icon} {Item}"
+            else: Output=f"{Icon} {Item} | {Type}"
             Whitespaces=''
             print(Output)
     else: print('~ |Empty Directory|')           
